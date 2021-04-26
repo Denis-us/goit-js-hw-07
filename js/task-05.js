@@ -4,5 +4,10 @@ const nameSpanEl = document.querySelector('#name-output')
 nameInputEl.addEventListener('input', inputChange)
 
 function inputChange(event) {
-    nameSpanEl.textContent = event.currentTarget.value
+    if(event.currentTarget.value) {
+        nameSpanEl.textContent = event.currentTarget.value 
+    }
+    else {
+        nameSpanEl.textContent = 'незнакомец';
+    }
 }

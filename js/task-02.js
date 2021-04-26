@@ -8,16 +8,19 @@ const ingredients = [
   ];
 
 
-const ingredientsList = document.querySelector('ul#ingredients');
+const ingredientsList = document.querySelector('#ingredients');
 
-const ingredientElements = [];
+const ingredientElements = ingredients => {
+  return ingredients.map (ingredient => {
+    const itemsEl = document.createElement('li')
+    itemsEl.textContent = ingredient;
 
-for (let ingredient of ingredients) {
-  const itemEl = document.createElement('li')
-  itemEl.textContent = ingredient
-  ingredientElements.push(itemEl)
-}
+    return itemsEl
+  })
+};
 
-ingredientsList.append(...ingredientElements)
+const elements = ingredientElements(ingredients)
+
+ingredientsList.append(...elements)
 
 console.log(ingredientsList)
